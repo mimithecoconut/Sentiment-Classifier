@@ -219,7 +219,6 @@ def train_perceptron(train_exs: List[SentimentExample], feat_extractor: FeatureE
             
 def update_weights_logistic_regression(weights, feat_vector, alpha, label):
     w_dot_feat = dot_product(weights, feat_vector)
-    # print(w_dot_feat)
     prob_positive = 1/ (1 + math.exp(-1 * w_dot_feat))
     for idx in feat_vector: 
         weights[idx] = (weights[idx]  + alpha * (label - prob_positive) * feat_vector[idx])
